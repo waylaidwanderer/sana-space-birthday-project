@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview"
+  },
+  "devDependencies": {
+    "@nuxtjs/tailwindcss": "^5.0.4",
+    "nuxt": "3.0.0-rc.3",
+    "sass": "^1.51.0",
+    "vue-responsive-video-background-player": "^2.2.1"
+  },
+  "dependencies": {
+    "@heroicons/vue": "^1.0.6",
+    "vue-final-modal": "^3.4.4"
+  }
+}
