@@ -22,19 +22,18 @@ cards.value = cardData
             :key="index"
         >
             <div class="header text-center text-3xl pt-10 pb-5">
-                Submitted by
                 <strong
                     v-if="card"
                     class="font-bold text-slate-300"
                     v-html="helpers.transformName(card.name)"
                 />
             </div>
-            <div class="flex mx-auto w-3/5 pb-10">
+            <div class="flex mx-auto w-9/12 lg:w-3/5 pb-10 flex-col lg:flex-row items-center lg:items-start">
                 <a
                     v-if="card.src"
                     :href="card.src"
                     target="_blank"
-                    class="block w-28 h-28 mr-3"
+                    class="block w-28 h-28 mr-3 mb-3 lg:mb-0"
                 >
                     <img
                         :src="card.thumbnail"
@@ -44,7 +43,7 @@ cards.value = cardData
                 </a>
                 <p
                     v-if="card.message"
-                    class="whitespace-pre-wrap break-words text-xl"
+                    class="w-full whitespace-pre-wrap break-words text-xl"
                 >{{ card.message }}</p>
             </div>
             <hr v-if="index !== cards.length - 1"/>
