@@ -3,6 +3,11 @@
 import cardData from '../assets/data.json';
 import helpers from '../helpers';
 
+// https://www.youtube.com/watch?v=5SvarR1zE74
+const dateOfEarthDestruction = new Date('2021-11-10T17:33:02Z');
+const secondsSinceEarthDestruction = ((new Date()) - dateOfEarthDestruction) / 1000;
+const daysSinceEarthDestruction = Math.floor(secondsSinceEarthDestruction / (60 * 60 * 24));
+
 const quotes = [
     'pick a star',
     'stars shiny wonderful wow',
@@ -11,7 +16,7 @@ const quotes = [
     'This is the universe, isn\'t it beautiful?',
     'Seno seno Sana ga seno! Kawaii Sana ga seno chuu!',
     'Sana is eternal!',
-    'Days without destroying Earth: █',
+    `Days without destroying Earth: ${daysSinceEarthDestruction}`,
     'BEEEEEEEEG',
 ];
 const customClassNames = [];
