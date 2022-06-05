@@ -5,7 +5,7 @@ onBeforeMount(() => {
     // preload all images
     const cardBackground = new Image();
     cardBackground.src = cardBackgroundImg;
-    for (let i = 1; i <= 58; i++) {
+    for (let i = 58; i >= 1; i--) {
         const thumbnail = new Image();
         thumbnail.src = `/art/thumbnails/${i.toString().padStart(2, '0')}.png`;
         const img = new Image();
