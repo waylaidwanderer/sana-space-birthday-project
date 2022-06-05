@@ -6,7 +6,7 @@ const customClassNames = [];
 
 const showArtModal = ref(false);
 const isFront = ref(true);
-const buttonText = computed(() => `${isFront.value ? 'To' : '< To'} ${isFront.value ? 'Back >' : 'Front'}`);
+const buttonText = computed(() => `${isFront.value ? 'View' : '← View'} ${isFront.value ? 'Back →' : 'Front'}`);
 const expandedArt = ref(null);
 
 const changeCardSide = () => {
