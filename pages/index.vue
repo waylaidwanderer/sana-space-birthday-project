@@ -84,7 +84,7 @@ const onArtModalOpen = () => {
                 Submitted by
                 <strong
                     v-if="expandedArt"
-                    class="font-bold text-slate-300"
+                    class="font-bold text-slate-300 break-normal"
                     v-html="helpers.transformName(expandedArt.name)"
                 />
             </template>
@@ -98,7 +98,7 @@ const onArtModalOpen = () => {
                 />
                 <p
                     v-if="expandedArt?.message"
-                    class="whitespace-pre-wrap break-words pt-3 text-xl"
+                    class="max-w-[80vw] whitespace-pre-wrap break-words pt-3 text-xl"
                 >{{ expandedArt.message }}</p>
             </div>
         </ArtModal>

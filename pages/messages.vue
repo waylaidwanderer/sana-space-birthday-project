@@ -192,16 +192,16 @@ onBeforeMount(() => {
             </template>
             <div
                 v-if="currentCard"
-                class="flex pr-2"
+                class="flex flex-col md:flex-row items-center md:items-start pr-2"
             >
                 <img
                     v-if="currentCard.src"
                     :src="currentCard.src"
                     alt=""
-                    class="block w-28 h-28 mr-3"
+                    class="block w-28 h-28 mr-3 mb-3 md:mb-0"
                 />
                 <p
-                    class="whitespace-pre-wrap break-words text-xl"
+                    class="w-full whitespace-pre-wrap break-words text-xl"
                 >{{ currentCard.message }}</p>
             </div>
         </MessagesModal>
