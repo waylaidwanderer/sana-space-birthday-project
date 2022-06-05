@@ -3,6 +3,17 @@
 import cardData from '../assets/data.json';
 import helpers from '../helpers';
 
+const quotes = [
+    'pick a star',
+    'stars shiny wonderful wow',
+    'Spaaaaaaaace!',
+    '*headpats*',
+    'This is the universe, isn\'t it beautiful?',
+    'Seno seno Sana ga seno! Kawaii Sana ga seno chuu!',
+    'Sana is eternal!',
+    'Days without destroying Earth: █',
+    'BEEEEEEEEG',
+];
 const customClassNames = [];
 
 const showModal = ref(false);
@@ -10,8 +21,10 @@ const cards = reactive([]);
 const viewedCards = ref([]);
 const currentCard = ref(null);
 const currentCardName = ref('');
-const infoTextIndex = ref(1);
+const infoTextIndex = ref(0);
 const showMessagesWithArt = ref(null);
+
+let quotesInterval = null;
 
 const randomNumber = (min, max) =>  Math.random() * (max - min) + min;
 
@@ -120,13 +133,18 @@ onBeforeMount(() => {
             });
         });
 
-    setInterval(() => {
-        if (infoTextIndex.value === 1) {
-            infoTextIndex.value = 2;
-        } else if (infoTextIndex.value === 2) {
-            infoTextIndex.value = 1;
+    quotesInterval = setInterval(() => {
+        if (infoTextIndex.value + 1 >= quotes.length) {
+            infoTextIndex.value = 0;
+        } else {
+            infoTextIndex.value++;
         }
     }, 6500);
+});
+
+onBeforeUnmount(() => {
+    clearInterval(quotesInterval);
+    quotesInterval = null;
 });
 </script>
 
@@ -174,8 +192,12 @@ onBeforeMount(() => {
                 <span>Happy Birthday!</span>
                 <br/>
                 <Transition name="fade" mode="out-in">
-                    <span v-if="infoTextIndex === 1" class="info">(pick a star)</span>
-                    <span v-else-if="infoTextIndex === 2" class="info">(stars shiny wonderful wow)</span>
+                    <span
+                        :key="infoTextIndex"
+                        class="info"
+                    >
+                        ({{ quotes[infoTextIndex] }})
+                    </span>
                 </Transition>
             </div>
         </div>
