@@ -1,6 +1,10 @@
 <script setup>
-onMounted(() => {
+import cardBackgroundImg from '~/assets/img/card_background.jpg';
+
+onBeforeMount(() => {
     // preload all images
+    const cardBackground = new Image();
+    cardBackground.src = cardBackgroundImg;
     for (let i = 1; i <= 58; i++) {
         const thumbnail = new Image();
         thumbnail.src = `/art/thumbnails/${i.toString().padStart(2, '0')}.png`;
