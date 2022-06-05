@@ -335,7 +335,7 @@ $shadows-big: multiple-box-shadow(100);
     text-align: center;
     font-family: 'Kalam', sans-serif;
     font-weight: 300;
-    @apply md:text-7xl sm:text-4xl;
+    @apply text-4xl md:text-6xl lg:text-7xl;
     letter-spacing: 10px;
 
     margin-top: -60px;
@@ -347,7 +347,7 @@ $shadows-big: multiple-box-shadow(100);
         -webkit-text-fill-color: transparent;
 
         &.info {
-            @apply sm:text-base md:text-2xl;
+            @apply text-base md:text-xl lg:text-2xl;
             transition: all 0.3s ease;
         }
     }
