@@ -94,7 +94,7 @@ const onArtModalOpen = () => {
                 <img
                     :src="expandedArt?.thumbnail"
                     alt=""
-                    class="h-[80vh] mx-auto block"
+                    class="w-[80vh] mx-auto block"
                 />
                 <p
                     v-if="expandedArt?.message"
