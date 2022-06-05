@@ -88,16 +88,15 @@ onBeforeMount(() => {
     cardData
         .filter(card => card.message)
         .map((card) => {
-            let src = null;
             if (card.art_index) {
-                src = `/art/thumbnails/${card.art_index.toString().padStart(2, '0')}.png`;
+                card.thumbnail = `/art/thumbnails/${card.art_index.toString().padStart(2, '0')}.png`;
+                card.src = `/art/full/${card.art_index.toString().padStart(2, '0')}.jpg`;
             }
-            card.src = src;
             return card;
         })
         .forEach((card) => {
             let left, top;
-            // pretty lazy way to attempt to make sure stars aren't placed too close to one another, but hey, it works
+            // pretty lazy way to attempt to make sure stars aren't placed too close to one another or in bad spots, but hey, it works
             for (let i = 0; i < 1000; i++) {
                 left = randomNumber(2, 98);
                 top = randomNumber(2, 98);
@@ -198,12 +197,18 @@ onBeforeMount(() => {
                 v-if="currentCard"
                 class="flex flex-col md:flex-row items-center md:items-start pr-2"
             >
-                <img
+                <a
                     v-if="currentCard.src"
-                    :src="currentCard.src"
-                    alt=""
-                    class="block w-28 h-28 mr-3 mb-3 md:mb-0"
-                />
+                    :href="currentCard.src"
+                    target="_blank"
+                    class="block mr-3 mb-3 md:mb-0"
+                >
+                    <img
+                        :src="currentCard.thumbnail"
+                        alt=""
+                        class="max-w-none w-28 h-28"
+                    />
+                </a>
                 <p
                     class="w-full whitespace-pre-wrap break-words text-xl"
                 >{{ currentCard.message }}</p>

@@ -91,11 +91,16 @@ const onArtModalOpen = () => {
             <div
                 class="px-2"
             >
-                <img
-                    :src="expandedArt?.thumbnail"
-                    alt=""
-                    class="w-[80vh] mx-auto block"
-                />
+                <a
+                    :href="expandedArt?.full_src"
+                    target="_blank"
+                >
+                    <img
+                        :src="expandedArt?.thumbnail"
+                        alt=""
+                        class="w-[80vh] mx-auto block"
+                    />
+                </a>
                 <p
                     v-if="expandedArt?.message"
                     class="max-w-[80vw] whitespace-pre-wrap break-words pt-3 text-xl"

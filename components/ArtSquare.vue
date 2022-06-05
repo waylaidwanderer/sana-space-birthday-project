@@ -31,6 +31,7 @@ const imageData = computed(() => {
         ...artData,
         thumbnail: `/art/thumbnails/${realIndex.value.toString().padStart(2, '0')}.png`,
         src: `/art/${realIndex.value.toString().padStart(2, '0')}.jpg`,
+        full_src: `/art/full/${realIndex.value.toString().padStart(2, '0')}.jpg`,
     };
 });
 

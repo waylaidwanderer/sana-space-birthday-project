@@ -38,7 +38,7 @@ cards.value = cardData
                     <img
                         :src="card.thumbnail"
                         alt=""
-                        class="w-28 h-28"
+                        class="max-w-none w-28 h-28"
                     />
                 </a>
                 <p
@@ -54,10 +54,6 @@ cards.value = cardData
 <style lang="scss" scoped>
 * {
     font-family: "Itim", sans-serif;
-}
-
-img {
-    max-width: initial;
 }
 
 .header {
