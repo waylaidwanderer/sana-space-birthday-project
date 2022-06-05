@@ -62,6 +62,10 @@ const onArtModalClosed = () => {
 };
 
 const clearViewingHistory = () => {
+    if (!confirm('Are you sure you want to clear the viewing history?')) {
+        return;
+    }
+
     viewedCards.value = [];
     currentCardName.value = '';
 
