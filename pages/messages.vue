@@ -126,6 +126,7 @@ onBeforeMount(() => {
 <template>
     <div>
         <div class="absolute top-0 left-0 mt-3 ml-3 text-xs">
+            <NuxtLink to="/" class="mb-3 block text-sm font-bold">← Back</NuxtLink>
             <div class="mb-1">
                 <input
                     v-model="showMessagesWithArt"
