@@ -101,6 +101,10 @@ onBeforeMount(() => {
             for (let i = 0; i < 1000; i++) {
                 left = randomNumber(2, 98);
                 top = randomNumber(2, 98);
+                // quick attempt to keep the top left menu options somewhat clear
+                if (left < 10 && top < 10) {
+                    continue;
+                }
                 // quick attempt to keep middle (where the text is) somewhat clear
                 if (left > 30 && left < 70 && top > 40 && top < 70) {
                     continue;
