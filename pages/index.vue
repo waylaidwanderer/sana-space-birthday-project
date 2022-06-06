@@ -180,6 +180,14 @@ const onArtModalOpen = () => {
         .vue-responsive-videobg {
             width: calc(1920px * #{$zoom}) !important;
             height: calc(1920px * (1080/1920) * #{$zoom}) !important;
+            margin-top: -5%;
+        }
+    }
+
+    @media only screen
+    and (min-width: 2274px) {
+        .vue-responsive-videobg {
+            margin-top: -4%;
         }
     }
 
@@ -188,6 +196,27 @@ const onArtModalOpen = () => {
         .vue-responsive-videobg {
             width: calc(1920px * #{$zoom}) !important;
             height: calc(1920px * (1080/1920) * #{$zoom}) !important;
+        }
+    }
+
+    @media only screen
+    and (min-width: 3100px) {
+        .vue-responsive-videobg {
+            margin-top: -3%;
+        }
+    }
+
+    @media only screen
+    and (min-width: 4100px) {
+        .vue-responsive-videobg {
+            margin-top: -2.5%;
+        }
+    }
+
+    @media only screen
+    and (min-width: 4800px) {
+        .vue-responsive-videobg {
+            margin-top: -2%;
         }
     }
 }
