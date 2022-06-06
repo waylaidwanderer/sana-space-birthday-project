@@ -236,7 +236,6 @@ const onArtModalOpen = () => {
 
     .card-nav {
         @apply absolute bottom-0 w-full text-center;
-        @apply bg-gradient-to-t from-slate-700;
         height: 13%;
         z-index: 100;
 
