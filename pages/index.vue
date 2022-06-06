@@ -111,7 +111,7 @@ const onArtModalOpen = () => {
         <div class="video-container">
             <video-background
                 src="/cam1.mp4"
-                style="z-index: 1;"
+                class="z-[1]"
                 :style="{ opacity: isFront ? 1 : 0 }"
             />
             <video-background
@@ -121,25 +121,79 @@ const onArtModalOpen = () => {
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .video-container {
-    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
+    filter: blur(2px);
+    @apply mx-auto flex items-center justify-center;
+
+    $zoom: 1.2;
 
     .vue-responsive-videobg {
-        height: 100vh;
-        margin: -1 auto;
+        width: calc(640px * #{$zoom}) !important;
+        height: calc(640px * (1080/1920) * #{$zoom}) !important;
         transition: opacity 0.5s;
-        position: absolute;
+        position: absolute !important;
+        margin-top: -4%;
 
-        video {
-            opacity: 1;
-            filter: blur(2px);
-            max-width: 2050px;
+        .video-wrapper {
+            @apply mx-auto;
+        }
+    }
+
+    @media only screen
+    and (min-width: 768px) {
+        .vue-responsive-videobg {
+            width: calc(768px * #{$zoom}) !important;
+            height: calc(768px * (1080/1920) * #{$zoom}) !important;
+        }
+    }
+
+    @media only screen
+    and (min-width: 1024px) {
+        .vue-responsive-videobg {
+            width: calc(1024px * #{$zoom}) !important;
+            height: calc(1024px * (1080/1920) * #{$zoom}) !important;
+        }
+    }
+
+    @media only screen
+    and (min-width: 1280px) {
+        .vue-responsive-videobg {
+            width: calc(1280px * #{$zoom}) !important;
+            height: calc(1280px * (1080/1920) * #{$zoom}) !important;
+        }
+    }
+
+    @media only screen
+    and (min-width: 1536px) {
+        .vue-responsive-videobg {
+            width: calc(1536px * #{$zoom}) !important;
+            height: calc(1536px * (1080/1920) * #{$zoom}) !important;
+        }
+    }
+
+    @media only screen
+    and (min-width: 1920px) {
+        .vue-responsive-videobg {
+            width: calc(1920px * #{$zoom}) !important;
+            height: calc(1920px * (1080/1920) * #{$zoom}) !important;
+        }
+    }
+
+    @media only screen
+    and (min-width: 2560px) {
+        .vue-responsive-videobg {
+            width: calc(1920px * #{$zoom}) !important;
+            height: calc(1920px * (1080/1920) * #{$zoom}) !important;
         }
     }
 }
+</style>
 
+<style lang="scss" scoped>
 .card-container {
     position: absolute;
     top: 0;
@@ -171,52 +225,17 @@ const onArtModalOpen = () => {
         max-width: 1025px;
         max-height: 80%;
         flex-wrap: wrap;
-        width: 50%;
+        width: 80%;
         color: #d2d2d2;
         background: white url('~/assets/img/card_background.jpg') no-repeat;
         background-size: cover;
         transition: width 0.3s;
     }
-}
 
-@media only screen
-and (max-width: 1280px) {
-    .card-container {
+    @media only screen
+    and (min-width: 680px) {
         .wrapper {
-            width: 80%;
-        }
-    }
-}
-
-@media only screen
-and (max-height: 700px)
-and (orientation: landscape) {
-    .card-container {
-        .wrapper {
-            width: 40%;
-        }
-    }
-}
-
-@media only screen
-and (max-height: 600px)
-and (orientation: landscape) {
-    .card-container {
-        .wrapper {
-            width: 30%;
-        }
-        .card-nav {
-            height: 20%;
-        }
-    }
-}
-
-@media only screen
-and (max-height: 500px)
-and (orientation: landscape) {
-    .card-container {
-        .wrapper {
-            width: 20%;
+            width: 53%;
         }
     }
 }
