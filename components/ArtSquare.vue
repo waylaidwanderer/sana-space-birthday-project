@@ -26,6 +26,11 @@ const imageData = computed(() => {
     if (realIndex.value === null) {
         return {};
     }
+    if (realIndex.value === 0) {
+        return {
+            thumbnail: `/art/thumbnails/00.gif`,
+        };
+    }
     const artData = cardData.find(data => data.art_index === realIndex.value);
     return {
         ...artData,
