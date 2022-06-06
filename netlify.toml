@@ -2,3 +2,24 @@
   from = "/*"
   to = "/"
   status = 200
+
+[[headers]]
+  for = "/art/*"
+  [headers.values]
+    Cache-Control = "public, s-max-age=604800"
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, s-max-age=604800"
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, s-max-age=604800"
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, s-max-age=604800"
+[[headers]]
+  for = "/*.mjs"
+  [headers.values]
+    Cache-Control = "public, s-max-age=604800"
