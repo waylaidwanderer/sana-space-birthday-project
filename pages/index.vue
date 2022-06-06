@@ -134,9 +134,9 @@ const onArtModalOpen = () => {
     .vue-responsive-videobg {
         width: calc(640px * #{$zoom}) !important;
         height: calc(640px * (1080/1920) * #{$zoom}) !important;
-        transition: opacity 0.5s, margin-top 0.5s;
+        transition: all 0.25s;
         position: absolute !important;
-        margin-top: -4%;
+        margin-top: -5%;
 
         .video-wrapper {
             @apply mx-auto;
@@ -180,7 +180,6 @@ const onArtModalOpen = () => {
         .vue-responsive-videobg {
             width: calc(1920px * #{$zoom}) !important;
             height: calc(1920px * (1080/1920) * #{$zoom}) !important;
-            margin-top: -5%;
         }
     }
 
