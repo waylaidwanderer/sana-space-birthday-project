@@ -18,6 +18,7 @@ onBeforeMount(() => {
     <div>
         <Head>
             <Title>Sana's Space Birthday Project</Title>
+            <Meta name="description" content="Presented with love by the Sanallites | #SanaSpaceBirthdayProject2022"/>
             <Meta name="viewport" content="width=device-width, initial-scale=0.86, minimum-scale=0.86, maximum-scale=1.0"/>
             <Link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=1"/>
             <Link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=1"/>
