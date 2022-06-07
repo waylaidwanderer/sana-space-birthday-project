@@ -108,16 +108,18 @@ const onArtModalOpen = () => {
             </div>
         </ArtModal>
 
-        <div class="video-container">
-            <video-background
-                src="/cam1.mp4"
-                class="z-[1]"
-                :style="{ opacity: isFront ? 1 : 0 }"
-            />
-            <video-background
-                src="/cam2.mp4"
-            />
-        </div>
+        <ClientOnly>
+            <div class="video-container">
+                <video-background
+                    src="/cam1.mp4"
+                    class="z-[1]"
+                    :style="{ opacity: isFront ? 1 : 0 }"
+                />
+                <video-background
+                    src="/cam2.mp4"
+                />
+            </div>
+        </ClientOnly>
     </div>
 </template>
 

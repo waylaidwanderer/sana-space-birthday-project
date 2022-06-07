@@ -95,6 +95,10 @@ const clearViewingHistory = () => {
 };
 
 onBeforeMount(() => {
+    if (!process.client) {
+        return;
+    }
+
     try {
         const localStorage = JSON.parse(window.localStorage.getItem('history'));
         viewedCards.value = localStorage.viewedCards;
