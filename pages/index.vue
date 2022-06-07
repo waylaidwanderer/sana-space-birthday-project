@@ -51,10 +51,6 @@ const onArtModalOpen = () => {
 
 <template>
     <div>
-        <Head>
-            <Title>Sana's Space Birthday Card</Title>
-        </Head>
-
         <div class="card-container">
             <div
                 class="wrapper"

@@ -159,92 +159,94 @@ onBeforeUnmount(() => {
 
 <template>
     <div>
-        <div class="absolute top-0 left-0 mt-3 ml-3 text-xs">
-            <NuxtLink to="/" class="mb-3 block text-sm font-bold">← Back</NuxtLink>
-            <div class="mb-1">
-                <input
-                    v-model="showMessagesWithArt"
-                    type="checkbox"
-                    id="show-messages-with-art"
-                />
-                <label
-                    for="show-messages-with-art"
-                    class="ml-1 cursor-pointer"
-                >Show Messages With Art</label>
+        <ClientOnly>
+            <div class="absolute top-0 left-0 mt-3 ml-3 text-xs">
+                <NuxtLink to="/" class="mb-3 block text-sm font-bold">← Back</NuxtLink>
+                <div class="mb-1">
+                    <input
+                        v-model="showMessagesWithArt"
+                        type="checkbox"
+                        id="show-messages-with-art"
+                    />
+                    <label
+                        for="show-messages-with-art"
+                        class="ml-1 cursor-pointer"
+                    >Show Messages With Art</label>
+                </div>
+                <button class="block underline" @click="clearViewingHistory">Clear Viewing History</button>
             </div>
-            <button class="block underline" @click="clearViewingHistory">Clear Viewing History</button>
-        </div>
 
-        <div class="stars-container">
-            <Head>
-                <Title>Sana's Space Birthday Messages</Title>
-            </Head>
-            <div class="stars"></div>
-            <div class="stars2"></div>
-            <div class="stars3">
-                <div
-                    v-for="(card, index) in cards"
-                    :key="index"
-                    class="star"
-                    :class="{
+            <div class="stars-container">
+                <Head>
+                    <Title>Sana's Space Birthday Messages</Title>
+                </Head>
+                <div class="stars"></div>
+                <div class="stars2"></div>
+                <div class="stars3">
+                    <div
+                        v-for="(card, index) in cards"
+                        :key="index"
+                        class="star"
+                        :class="{
                         viewed: viewedCards.includes(card.name),
                         current: currentCardName === card.name,
                         hidden: !showMessagesWithArt && card.art_index
                     }"
-                    :style="{ left: `${card.left}%`, top: `${card.top}%`, 'animation-delay': `${index * 33}ms` }"
-                    @click="onStarClick(card, index, $event)"
-                />
-            </div>
-            <div class="title">
-                <span>We Love You Sana</span>
-                <br/>
-                <span>Happy Birthday!</span>
-                <br/>
-                <Transition name="fade" mode="out-in">
+                        :style="{ left: `${card.left}%`, top: `${card.top}%`, 'animation-delay': `${index * 33}ms` }"
+                        @click="onStarClick(card, index, $event)"
+                    />
+                </div>
+                <div class="title">
+                    <span>We Love You Sana</span>
+                    <br/>
+                    <span>Happy Birthday!</span>
+                    <br/>
+                    <Transition name="fade" mode="out-in">
                     <span
                         :key="infoTextIndex"
                         class="info"
                     >
                         ({{ quotes[infoTextIndex] }})
                     </span>
-                </Transition>
+                    </Transition>
+                </div>
             </div>
-        </div>
 
-        <MessagesModal
-            v-model="showModal"
-            @closed="onArtModalClosed"
-            :transition="currentCard?.transitionClassName"
-        >
-            <template v-slot:title>
-                Submitted by
-                <strong
-                    v-if="currentCard"
-                    class="font-bold text-slate-300"
-                    v-html="helpers.transformName(currentCard.name)"
-                />
-            </template>
-            <div
-                v-if="currentCard"
-                class="flex flex-col md:flex-row items-center md:items-start pr-2"
+            <MessagesModal
+                v-model="showModal"
+                @closed="onArtModalClosed"
+                :transition="currentCard?.transitionClassName"
             >
-                <a
-                    v-if="currentCard.src"
-                    :href="currentCard.src"
-                    target="_blank"
-                    class="block mr-3 mb-3 md:mb-0"
-                >
-                    <img
-                        :src="currentCard.thumbnail"
-                        alt=""
-                        class="max-w-none w-28 h-28"
+                <template v-slot:title>
+                    Submitted by
+                    <strong
+                        v-if="currentCard"
+                        class="font-bold text-slate-300"
+                        v-html="helpers.transformName(currentCard.name)"
                     />
-                </a>
-                <p
-                    class="w-full whitespace-pre-wrap break-words text-xl"
-                >{{ currentCard.message }}</p>
-            </div>
-        </MessagesModal>
+                </template>
+                <div
+                    v-if="currentCard"
+                    class="flex flex-col md:flex-row items-center md:items-start pr-2"
+                >
+                    <a
+                        v-if="currentCard.src"
+                        :href="currentCard.src"
+                        target="_blank"
+                        class="block mr-3 mb-3 md:mb-0"
+                    >
+                        <img
+                            :src="currentCard.thumbnail"
+                            alt=""
+                            class="max-w-none w-28 h-28"
+                        />
+                    </a>
+                    <p
+                        class="w-full whitespace-pre-wrap break-words text-xl"
+                    >{{ currentCard.message }}</p>
+                </div>
+            </MessagesModal>
+        </ClientOnly>
     </div>
 </template>
 
