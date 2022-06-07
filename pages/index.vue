@@ -134,7 +134,7 @@ const onArtModalOpen = () => {
     .vue-responsive-videobg {
         width: calc(640px * #{$zoom}) !important;
         height: calc(640px * (1080/1920) * #{$zoom}) !important;
-        transition: opacity 0.25s, margin-top 0.25s;
+        transition: all 0.25s ease;
         position: absolute !important;
         margin-top: -5%;
 
