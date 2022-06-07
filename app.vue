@@ -39,7 +39,6 @@ body {
     @apply text-slate-300;
     background: #191e2f radial-gradient(circle at bottom, #1B2735 0%, #090A0F 100%);
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .slide-fade-enter-active {
