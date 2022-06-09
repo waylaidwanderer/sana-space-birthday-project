@@ -1,6 +1,8 @@
 <script setup>
 import cardBackgroundImg from '~/assets/img/card_background.jpg';
 
+console.log('Looking for the source code? You can find it here: https://github.com/waylaidwanderer/sana-space-birthday-project :)');
+
 onBeforeMount(() => {
     // preload all images
     const cardBackground = new Image();
